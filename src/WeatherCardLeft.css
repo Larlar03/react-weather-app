@@ -5,6 +5,7 @@
   flex-flow: column nowrap;
   justify-content: center;
   text-align: left;
+  font-size: 14px;
 }
 
 h2 {
