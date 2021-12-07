@@ -11,6 +11,6 @@
   text-decoration: none;
 }
 
-.repo-link:hover {
+.repo-link a:hover {
   color: #ff5d73;
 }

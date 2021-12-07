@@ -1,8 +1,6 @@
 import "./App.css";
-import Form from "./Form";
-import WeatherCard from "./WeatherCard";
+import Weather from "./Weather";
 import RepoLink from "./RepoLink";
-import ForecastContainer from "./ForecastContainer";
 
 export default function App() {
   function changeBackground() {
@@ -23,21 +21,7 @@ export default function App() {
 
   return (
     <div id="App">
-      <main>
-        <div className="row">
-          <div className="col-12">
-            <Form />
-          </div>
-        </div>
-        <div id="app-container">
-          <div className="row">
-            <WeatherCard />
-          </div>
-          <div className="row">
-            <ForecastContainer />
-          </div>
-        </div>
-      </main>
+      <Weather defaultCity="Birmingham,GB" />
       <RepoLink />
     </div>
   );
