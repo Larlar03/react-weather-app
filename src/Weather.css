@@ -245,3 +245,11 @@ li {
   color: #7c92f4;
   font-weight: 600;
 }
+
+/*LOADER*/
+.loader {
+  height: 500px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-export default function FiveDayForecast(props) {
+export default function WeekForecast(props) {
   function formatDay(timestamp) {
     let date = new Date(timestamp * 1000);
     let day = date.getDay();

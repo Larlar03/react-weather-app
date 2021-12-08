@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import WeekForecast from "./WeekForecast";
+import Loader from "./Loader";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import "./Weather.css";
-import FiveDayForecast from "./FiveDayForecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -74,12 +75,18 @@ export default function Weather(props) {
         </div>
         <div id="app-container">
           <WeatherInfo data={weatherData} />
-          <FiveDayForecast coordinates={weatherData.coordinates} />
+          <WeekForecast coordinates={weatherData.coordinates} />
         </div>
       </main>
     );
   } else {
     search();
-    return "Loading";
+    return (
+      <main>
+        <div className="col loader">
+          <Loader />
+        </div>
+      </main>
+    );
   }
 }
