@@ -3,15 +3,16 @@ import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import "./Weather.css";
+import FiveDayForecast from "./FiveDayForecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       city: response.data.name,
       country: response.data.sys.country,
       temperature: Math.round(response.data.main.temp),
@@ -23,7 +24,7 @@ export default function Weather(props) {
   }
 
   function search() {
-    const apiKey = "76261526781005dcd8b27ca5524074f5";
+    let apiKey = "76261526781005dcd8b27ca5524074f5";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
@@ -71,7 +72,10 @@ export default function Weather(props) {
             </button>
           </form>
         </div>
-        <WeatherInfo data={weatherData} />
+        <div id="app-container">
+          <WeatherInfo data={weatherData} />
+          <FiveDayForecast coordinates={weatherData.coordinates} />
+        </div>
       </main>
     );
   } else {
