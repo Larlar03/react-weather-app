@@ -40,7 +40,7 @@ export default function WeekForecast(props) {
     forecastElement.innerHTML = forecastHTML;
   }
 
-  let apiKey = "349a825991e0b08827174146bcc6c8e0";
+  let apiKey = "76261526781005dcd8b27ca5524074f5";
   let lon = props.coordinates.lon;
   let lat = props.coordinates.lat;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
